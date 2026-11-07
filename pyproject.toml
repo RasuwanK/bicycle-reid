@@ -15,6 +15,8 @@ dependencies = [
     "torch",
     "torchvision",
     "pyyaml",
+    "streamlit",
+    "pandas",
 ]
 
 [project.optional-dependencies]

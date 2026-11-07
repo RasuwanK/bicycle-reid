@@ -32,6 +32,7 @@ class Detection:
     class_name: str
     confidence: float
     detection_id: str = ""
+    track_id: str | None = None
 
     def __post_init__(self) -> None:
         if not self.detection_id:

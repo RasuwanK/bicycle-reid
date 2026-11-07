@@ -82,6 +82,13 @@ def main() -> int:
         help="Run MVP on sample demo imagery.",
     )
     parser.add_argument(
+        "--ui",
+        "--web",
+        action="store_true",
+        dest="web_ui",
+        help="Launch the interactive Streamlit Web Interface.",
+    )
+    parser.add_argument(
         "--conf",
         type=float,
         default=None,
@@ -101,6 +108,13 @@ def main() -> int:
         level=logging.INFO,
         format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
     )
+
+    if args.web_ui:
+        import subprocess
+        app_file = Path(__file__).resolve().parent / "app" / "streamlit_app.py"
+        print(f"[*] Starting Streamlit Web UI at {app_file}...")
+        cmd = [sys.executable, "-m", "streamlit", "run", str(app_file)]
+        return subprocess.call(cmd)
 
     config = load_default_config(args.config)
     if args.conf is not None:

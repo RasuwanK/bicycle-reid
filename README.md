@@ -69,9 +69,89 @@ This installs:
 
 ---
 
-## 🚀 How to Run
+## 🐳 Running with Docker (Containerized)
 
-### 1. Run the Built-In Demo
+The application is fully containerized with self-contained model weights and runtime dependencies (OpenCV, PyTorch, FFmpeg, Ultralytics, and Streamlit).
+
+### 1. Quick Start with Docker Compose
+
+Launch the interactive Web UI with one command:
+
+```bash
+docker compose up -d
+```
+
+Open your browser and navigate to **[http://localhost:8501](http://localhost:8501)**.
+
+To stop the application:
+```bash
+docker compose down
+```
+
+### 2. Run Built-In Demo via Docker Compose
+
+```bash
+docker compose run --rm cli
+```
+
+### 3. Run Custom CLI Commands with Docker
+
+Analyze your own CCTV footage mounted from the host's `data/` directory:
+
+```bash
+docker run --rm -v $(pwd)/data:/app/data bicycle-reid \
+    --source-a data/cctv_camera_a.mp4 \
+    --source-b data/cctv_camera_b.mp4
+```
+
+Or run the built-in demo directly:
+```bash
+docker run --rm bicycle-reid --demo
+```
+
+### 4. Run Offline Test Suite in Container
+
+```bash
+docker run --rm bicycle-reid pytest
+```
+
+### 5. GPU Acceleration (Optional)
+
+If your host has an NVIDIA GPU and the NVIDIA Container Toolkit configured, you can enable GPU inference:
+
+```bash
+docker run --rm --gpus all -p 8501:8501 -v $(pwd)/data:/app/data bicycle-reid
+```
+
+---
+
+## 🚀 How to Run (Local Python Environment)
+
+### 1. Launch the Interactive Web Interface (Recommended)
+
+Start the web application supporting video footage inspection, within-camera tracking, similarity matching, and one-click CSV export:
+
+```bash
+python src/main.py --ui
+```
+*or directly with Streamlit:*
+```bash
+streamlit run src/bicycle_reid/app/streamlit_app.py
+```
+*or via the CLI shortcut:*
+```bash
+bicycle-reid --ui
+```
+
+The web app allows you to:
+- 📹 **View CCTV Video Footage**: Play videos or scrub frame-by-frame with bounding box & track overlays.
+- 🚴 **Within-Camera Tracking**: Automatically tracks bicycles across frames with camera-scoped track IDs (`CAM_A:track_0001`).
+- 🔍 **Similarity Detection & Re-ID**: Compares visual features with cosine similarity matrices, competitor margins, and review decisions (`ACCEPTED`, `UNCERTAIN`, `NO_MATCH`).
+- 📥 **Export to CSV**: Instantly download frame-level detection records or track summaries formatted for spreadsheet and analytics tools.
+
+---
+
+### 2. Run the Built-In Console Demo
 
 Run the out-of-the-box demo using sample dual-camera images:
 
@@ -83,7 +163,7 @@ python src/main.py --demo
 bicycle-reid --demo
 ```
 
-### 2. Compare Two Existing CCTV Sources
+### 3. Compare Two Existing CCTV Sources via CLI
 
 Run cross-camera re-identification between two video files or still images:
 
@@ -91,10 +171,11 @@ Run cross-camera re-identification between two video files or still images:
 python src/main.py --source-a data/cctv_camera_a.mp4 --source-b data/cctv_camera_b.mp4
 ```
 
-### 3. Command-Line Options
+### 4. Command-Line Options
 
 | Flag | Type | Description | Default |
 | :--- | :--- | :--- | :--- |
+| `--ui` / `--web` | Flag | Launch interactive Streamlit Web Interface | `False` |
 | `--source-a` | Path | Video/image source for Camera A | `None` |
 | `--source-b` | Path | Video/image source for Camera B | `None` |
 | `--sources` | List[Path] | Arbitrary list of sources to analyze | `[]` |
@@ -137,9 +218,11 @@ bicycle-reid/
 │       ├── contracts/         # Typed data models (Detection, Track, EvidenceItem, etc.)
 │       ├── ingestion/         # Image & video decoding and metadata validation
 │       ├── detection/         # YOLO detector (zero-training transfer learning)
+│       ├── tracking/          # Within-camera tracking with camera-scoped track IDs
 │       ├── representation/    # Deep visual encoders (ResNet-50 / MobileNet-V3)
 │       ├── retrieval/         # Cosine similarity matrix & candidate margin ranking
 │       ├── reporting/         # Honest console reporting & explanation generation
+│       ├── app/               # Streamlit web UI, video processor, and CSV export
 │       ├── pipeline.py        # Pipeline orchestrator
 │       └── cli.py             # CLI command parser
 └── tests/
