@@ -1,0 +1,19 @@
+detection:
+  model_name: "yolov8n.pt"
+  confidence_threshold: 0.30
+  target_classes:
+    - "bicycle"
+    - "motorcycle"
+  primary_class: "bicycle"
+  device: "auto"
+
+representation:
+  model_name: "resnet50"
+  weights: "DEFAULT"
+  embedding_dim: 2048
+  device: "auto"
+  crop_padding: 0.05
+
+retrieval:
+  top_k: 5
+  min_similarity_threshold: 0.35

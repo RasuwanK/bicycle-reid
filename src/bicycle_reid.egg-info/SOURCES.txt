@@ -1,0 +1,8 @@
+pyproject.toml
+src/main.py
+src/bicycle_reid.egg-info/PKG-INFO
+src/bicycle_reid.egg-info/SOURCES.txt
+src/bicycle_reid.egg-info/dependency_links.txt
+src/bicycle_reid.egg-info/entry_points.txt
+src/bicycle_reid.egg-info/requires.txt
+src/bicycle_reid.egg-info/top_level.txt
