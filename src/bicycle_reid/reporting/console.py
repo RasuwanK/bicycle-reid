@@ -15,10 +15,10 @@ def print_banner(title: str) -> None:
 
 
 def print_detection_summary(detections_by_source: dict[str, list[Detection]]) -> None:
-    print_banner("Bicycle Detection Summary")
+    print_banner("Motorcycle Detection Summary")
     total_dets = sum(len(d) for d in detections_by_source.values())
     print(f"Total sources analyzed: {len(detections_by_source)}")
-    print(f"Total bicycle/motorcycle detections: {total_dets}\n")
+    print(f"Total motorcycle detections: {total_dets}\n")
 
     for src_id, dets in detections_by_source.items():
         print(f"▸ Source: [{src_id}] — ({len(dets)} detection{'s' if len(dets) != 1 else ''})")

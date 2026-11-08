@@ -16,7 +16,7 @@ class DummyDetector(BaseDetector):
                 frame_index=frame_index,
                 timestamp_seconds=timestamp_seconds,
                 bbox_xyxy=(10.0, 10.0, 60.0, 60.0),
-                class_name="bicycle",
+                class_name="motorcycle",
                 confidence=0.91,
             )
         ]
@@ -27,7 +27,7 @@ def test_base_detector_interface():
     frame = np.zeros((100, 100, 3), dtype=np.uint8)
     results = det.detect_frame(frame, camera_id="CAM_A", frame_index=2, timestamp_seconds=0.1)
     assert len(results) == 1
-    assert results[0].class_name == "bicycle"
+    assert results[0].class_name == "motorcycle"
     assert results[0].camera_id == "CAM_A"
     assert results[0].frame_index == 2
 

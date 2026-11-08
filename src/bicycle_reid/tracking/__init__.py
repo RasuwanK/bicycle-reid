@@ -1,4 +1,4 @@
-"""Within-camera tracking module for bicycle/motorcycle Re-ID."""
+"""Within-camera tracking module for motorcycle Re-ID."""
 
 from bicycle_reid.tracking.tracker import WithinCameraTracker, TrackState
 

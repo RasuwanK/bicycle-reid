@@ -18,7 +18,7 @@ def test_detections_to_dataframe():
         frame_index=5,
         timestamp_seconds=0.25,
         bbox_xyxy=(10.0, 20.0, 110.0, 220.0),
-        class_name="bicycle",
+        class_name="motorcycle",
         confidence=0.88,
         track_id="CAM_A:track_0001",
     )

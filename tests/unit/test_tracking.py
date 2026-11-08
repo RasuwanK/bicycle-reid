@@ -28,7 +28,7 @@ def test_tracker_camera_scoped_ids():
         frame_index=0,
         timestamp_seconds=0.0,
         bbox_xyxy=(10.0, 10.0, 50.0, 50.0),
-        class_name="bicycle",
+        class_name="motorcycle",
         confidence=0.9,
     )
 
@@ -42,7 +42,7 @@ def test_tracker_camera_scoped_ids():
         frame_index=1,
         timestamp_seconds=0.1,
         bbox_xyxy=(12.0, 11.0, 52.0, 51.0),
-        class_name="bicycle",
+        class_name="motorcycle",
         confidence=0.92,
     )
     tracked_1 = tracker.update([det_f1])

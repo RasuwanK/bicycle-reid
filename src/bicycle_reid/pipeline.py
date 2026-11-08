@@ -29,8 +29,8 @@ from bicycle_reid.reporting.console import (
 logger = logging.getLogger(__name__)
 
 
-class BicycleReIDPipeline:
-    """MVP Pipeline for bicycle detection, transfer learning embedding, and similarity scoring."""
+class MotorcycleReIDPipeline:
+    """MVP Pipeline for motorcycle detection, transfer learning embedding, and similarity scoring."""
 
     def __init__(self, config: AppConfig | None = None) -> None:
         self.config = config or load_default_config()
@@ -43,7 +43,7 @@ class BicycleReIDPipeline:
         camera_ids: Sequence[str] | None = None,
         max_frames_per_source: int = 10,
     ) -> dict[str, object]:
-        """Process one or more image/video sources and compute bicycle similarity."""
+        """Process one or more image/video sources and compute motorcycle similarity."""
         detections_by_source: dict[str, list[Detection]] = {}
         crops_by_source: dict[str, list[np.ndarray]] = {}
         embeddings_by_source: dict[str, np.ndarray] = {}
@@ -154,3 +154,7 @@ class BicycleReIDPipeline:
             "similarity_matrix": similarity_matrix,
             "retrieval_results": retrieval_results,
         }
+
+
+# Backward-compatible alias
+BicycleReIDPipeline = MotorcycleReIDPipeline

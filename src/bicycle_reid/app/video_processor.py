@@ -228,9 +228,8 @@ class VideoProcessor:
                 if writer:
                     writer.write(annotated)
 
-                # Keep sample preview frames (at most 30 preview frames)
-                if processed_count % max(1, (max_frames // 30)) == 0:
-                    annotated_frames.append(annotated)
+                # Store all annotated frames for smooth video playback
+                annotated_frames.append(annotated)
 
                 processed_count += 1
                 frame_idx += 1

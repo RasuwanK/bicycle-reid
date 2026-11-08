@@ -1,4 +1,4 @@
-"""Command-line interface for Bicycle Re-Identification MVP."""
+"""Command-line interface for Motorcycle Re-Identification MVP."""
 
 from __future__ import annotations
 
@@ -10,11 +10,11 @@ import cv2
 import numpy as np
 
 from bicycle_reid.config.settings import load_default_config, AppConfig
-from bicycle_reid.pipeline import BicycleReIDPipeline
+from bicycle_reid.pipeline import MotorcycleReIDPipeline
 
 
 def create_demo_assets(output_dir: Path) -> tuple[Path, Path]:
-    """Ensure two demo test frames exist containing bicycles."""
+    """Ensure two demo test frames exist containing motorcycles."""
     output_dir.mkdir(parents=True, exist_ok=True)
     img_a_path = output_dir / "camera_a_sample.jpg"
     img_b_path = output_dir / "camera_b_sample.jpg"
@@ -50,7 +50,7 @@ def create_demo_assets(output_dir: Path) -> tuple[Path, Path]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Cross-Camera Bicycle Re-Identification MVP (Transfer Learning Baseline)"
+        description="Cross-Camera Motorcycle Re-Identification MVP (Transfer Learning Baseline)"
     )
     parser.add_argument(
         "--config",
@@ -137,14 +137,20 @@ def main() -> int:
             camera_ids.append(Path(s).stem)
 
     if not sources or args.demo:
-        demo_dir = Path("data/demo")
-        print(f"[*] No inputs provided or --demo requested. Generating sample test assets in {demo_dir}...")
-        cam_a_file, cam_b_file = create_demo_assets(demo_dir)
-        sources = [cam_a_file, cam_b_file]
-        camera_ids = ["CAM_A", "CAM_B"]
+        cctv_a = Path("data/demo/camera_a_cctv.mp4")
+        cctv_b = Path("data/demo/camera_b_cctv.mp4")
+        if cctv_a.exists() and cctv_b.exists():
+            sources = [cctv_a, cctv_b]
+            camera_ids = ["CAM_A", "CAM_B"]
+        else:
+            demo_dir = Path("data/demo")
+            print(f"[*] No inputs provided or --demo requested. Generating sample test assets in {demo_dir}...")
+            cam_a_file, cam_b_file = create_demo_assets(demo_dir)
+            sources = [cam_a_file, cam_b_file]
+            camera_ids = ["CAM_A", "CAM_B"]
 
-    print(f"[*] Initializing Bicycle Re-ID MVP Pipeline...")
-    pipeline = BicycleReIDPipeline(config)
+    print(f"[*] Initializing Motorcycle Re-ID MVP Pipeline...")
+    pipeline = MotorcycleReIDPipeline(config)
 
     print(f"[*] Processing {len(sources)} source(s)...")
     pipeline.process_sources(sources, camera_ids=camera_ids)

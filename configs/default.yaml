@@ -2,9 +2,8 @@ detection:
   model_name: "yolov8n.pt"
   confidence_threshold: 0.30
   target_classes:
-    - "bicycle"
     - "motorcycle"
-  primary_class: "bicycle"
+  primary_class: "motorcycle"
   device: "auto"
 
 representation:

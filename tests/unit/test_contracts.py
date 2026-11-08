@@ -16,16 +16,16 @@ def test_detection_contract_and_geometry():
         frame_index=12,
         timestamp_seconds=0.48,
         bbox_xyxy=(10.0, 20.0, 110.0, 120.0),
-        class_name="bicycle",
+        class_name="motorcycle",
         confidence=0.88,
     )
     assert det.width == 100.0
     assert det.height == 100.0
     assert det.area == 10000.0
-    assert "CAM_01:f12:bicycle" in det.detection_id
+    assert "CAM_01:f12:motorcycle" in det.detection_id
     d_dict = det.to_dict()
     assert d_dict["confidence"] == 0.88
-    assert d_dict["class_name"] == "bicycle"
+    assert d_dict["class_name"] == "motorcycle"
 
 
 def test_camera_metadata_unknown_offset():

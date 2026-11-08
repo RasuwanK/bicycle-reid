@@ -1,4 +1,4 @@
-# Cross-Camera Bicycle Re-Identification System
+# Cross-Camera Motorcycle Re-Identification System
 
 ![Project Cover Image](assets/cover.png)
 *(Place your project cover or architecture banner image at `assets/cover.png`)*
@@ -7,7 +7,7 @@
 
 ## 🎯 Goal
 
-The goal of this project is to build a standalone computer-vision application that determines whether a bicycle observed in CCTV Video A is the same physical bicycle observed in CCTV Video B.
+The goal of this project is to build a standalone computer-vision application that determines whether a motorcycle observed in CCTV Video A is the same physical motorcycle observed in CCTV Video B.
 
 Unlike traditional demos that simply return the nearest neighbor, this system operates as an **evidence-fusion and decision-support system**:
 - **Track-Level Comparison**: Compares tracklets and multi-frame representations rather than a single arbitrary still image.
@@ -21,6 +21,7 @@ Unlike traditional demos that simply return the nearest neighbor, this system op
 
 | Media Type | Expected File Path | Description |
 | :--- | :--- | :--- |
+| **Architecture Diagram** | [`assets/architecture_diagram.excalidraw`](assets/architecture_diagram.excalidraw) | Interactive Excalidraw architecture diagram demonstrating how the end-to-end evidence-fusion pipeline solves motorcycle re-identification |
 | **Cover Image** | [`assets/cover.png`](assets/cover.png) | High-level banner, system diagram, or cover visual |
 | **Demo Video** | [`assets/demo.mp4`](assets/demo.mp4) | Walkthrough screen recording of the console/UI matching run |
 
@@ -28,6 +29,21 @@ Unlike traditional demos that simply return the nearest neighbor, this system op
 > To preview a video directly on GitHub, place an MP4 video or an animated GIF in `assets/` and link it below:
 > 
 > [![Watch Demo Video](https://img.shields.io/badge/Demo%20Video-assets%2Fdemo.mp4-blue?style=for-the-badge&logo=youtube)](assets/demo.mp4)
+
+---
+
+## 📹 Data Sources & Video Datasets
+
+The application comes preconfigured with local test footage in [`data/demo/`](file:///home/rasuwan-kalhara/Documents/bicycle-reid/data/demo/) for evaluation and development:
+
+| Dataset / File Pair | Camera IDs | Resolution & Framerate | Description & Characteristics |
+| :--- | :--- | :--- | :--- |
+| **Real CCTV Footage (Primary Dataset)**<br>`data/demo/camera_a_cctv.mp4`<br>`data/demo/camera_b_cctv.mp4` | `CAM_A`<br>`CAM_B` | 1280x720 @ 15.0 fps<br>(4.0s / 60 frames each) | Real urban intersection CCTV surveillance footage capturing active traffic with multiple simultaneous motorcycles, cars, and pedestrians under varying perspective angles. |
+| **Cyclist / Bicycle Baseline Footage**<br>`data/demo/camera_a_cyclist.mp4`<br>`data/demo/camera_b_cyclist.mp4` | `CAM_A`<br>`CAM_B` | 768x432 @ 12.0 fps<br>(3.3s / 40 frames each) | Legacy baseline evaluation videos of single moving two-wheelers across adjacent observation angles. |
+| **Sample Still Calibration Frames**<br>`src/data/demo/camera_a_sample.jpg`<br>`src/data/demo/camera_b_sample.jpg` | `CAM_A`<br>`CAM_B` | 640x480 static JPEG | Lightweight synthetic perspective and homography transformed test frames used for offline unit testing without requiring video decoding. |
+
+> [!NOTE]
+> Custom CCTV video footage can be placed in `data/input/` or uploaded directly via the interactive Streamlit interface file uploader (`.mp4`, `.avi`, `.mov`).
 
 ---
 
@@ -145,7 +161,7 @@ bicycle-reid --ui
 
 The web app allows you to:
 - 📹 **View CCTV Video Footage**: Play videos or scrub frame-by-frame with bounding box & track overlays.
-- 🚴 **Within-Camera Tracking**: Automatically tracks bicycles across frames with camera-scoped track IDs (`CAM_A:track_0001`).
+- 🏍️ **Within-Camera Tracking**: Automatically tracks motorcycles across frames with camera-scoped track IDs (`CAM_A:track_0001`).
 - 🔍 **Similarity Detection & Re-ID**: Compares visual features with cosine similarity matrices, competitor margins, and review decisions (`ACCEPTED`, `UNCERTAIN`, `NO_MATCH`).
 - 📥 **Export to CSV**: Instantly download frame-level detection records or track summaries formatted for spreadsheet and analytics tools.
 

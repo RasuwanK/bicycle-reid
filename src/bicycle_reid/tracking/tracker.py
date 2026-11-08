@@ -65,7 +65,7 @@ class TrackState:
 
 
 class WithinCameraTracker:
-    """Within-camera multi-object tracker for bicycles and motorcycles.
+    """Within-camera multi-object tracker for motorcycles.
     
     Generates deterministic, camera-scoped track IDs (e.g. CAM_A:track_0001)
     and produces Track contract objects with trajectory and quality metrics.

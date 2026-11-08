@@ -1,4 +1,4 @@
-"""YOLO detector implementation for bicycles and motorcycles."""
+"""YOLO detector implementation for motorcycles."""
 
 from __future__ import annotations
 

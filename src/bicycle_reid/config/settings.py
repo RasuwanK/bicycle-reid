@@ -13,8 +13,8 @@ import yaml
 class DetectionConfig:
     model_name: str = "yolov8n.pt"
     confidence_threshold: float = 0.30
-    target_classes: list[str] = field(default_factory=lambda: ["bicycle", "motorcycle"])
-    primary_class: str = "bicycle"
+    target_classes: list[str] = field(default_factory=lambda: ["motorcycle"])
+    primary_class: str = "motorcycle"
     device: str = "auto"
     min_box_area: float = 400.0  # filter out tiny noise artifacts
 

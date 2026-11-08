@@ -1,4 +1,4 @@
-"""Main entry point for Bicycle Re-Identification MVP."""
+"""Main entry point for Motorcycle Re-Identification MVP."""
 
 from __future__ import annotations
 
