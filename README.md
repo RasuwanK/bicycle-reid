@@ -27,7 +27,7 @@ Unlike traditional demos that simply return the nearest neighbor, this system op
 > [!TIP]
 > To preview a video directly on GitHub, place an MP4 video or an animated GIF in `assets/` and link it below:
 > 
-> [![Watch Demo Video](https://img.shields.io/badge/Demo%20Video-assets%2Fdemo.mp4-blue?style=for-the-badge&logo=youtube)](assets/demo.mp4)
+> [![Watch Demo Video]([https://img.shields.io/badge/Demo%20Video-assets%2Fdemo.mp4-blue?style=for-the-badge&logo=youtube](https://drive.google.com/file/d/1XHCtTEn5DlClL7vYxqqSQmccMBM9qYJb/view?usp=sharing))](assets/demo.mp4)
 
 ---
 
