@@ -19,7 +19,7 @@ Unlike traditional demos that simply return the nearest neighbor, this system op
 ## 🎬 Demo Video & Media
 
 > 
-> [![Watch Demo Video](https://drive.google.com/file/d/1XHCtTEn5DlClL7vYxqqSQmccMBM9qYJb/view?usp=sharing)
+> [Watch Demo Video](https://drive.google.com/file/d/1XHCtTEn5DlClL7vYxqqSQmccMBM9qYJb/view?usp=sharing)
 
 ---
 
