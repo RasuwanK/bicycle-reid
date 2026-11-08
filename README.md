@@ -1,6 +1,6 @@
 # Cross-Camera Motorcycle Re-Identification System
 
-![Project Cover Image](assets/cover.png)
+![Project Cover Image](assets/cover.jpeg)
 *(Place your project cover or architecture banner image at `assets/cover.png`)*
 
 ---
@@ -244,9 +244,3 @@ bicycle-reid/
 └── tests/
     └── unit/                  # Fast, offline pytest unit tests
 ```
-
----
-
-## 📋 License & Attribution
-
-Developed according to the multi-agent evidence-fusion architecture outlined in [`AGENTS.md`](AGENTS.md).
