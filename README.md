@@ -18,16 +18,8 @@ Unlike traditional demos that simply return the nearest neighbor, this system op
 
 ## 🎬 Demo Video & Media
 
-| Media Type | Expected File Path | Description |
-| :--- | :--- | :--- |
-| **Architecture Diagram** | [`assets/architecture_diagram.excalidraw`](assets/architecture_diagram.excalidraw) | Interactive Excalidraw architecture diagram demonstrating how the end-to-end evidence-fusion pipeline solves motorcycle re-identification |
-| **Cover Image** | [`assets/cover.png`](assets/cover.png) | High-level banner, system diagram, or cover visual |
-| **Demo Video** | [`assets/demo.mp4`](assets/demo.mp4) | Walkthrough screen recording of the console/UI matching run |
-
-> [!TIP]
-> To preview a video directly on GitHub, place an MP4 video or an animated GIF in `assets/` and link it below:
 > 
-> [![Watch Demo Video]([https://img.shields.io/badge/Demo%20Video-assets%2Fdemo.mp4-blue?style=for-the-badge&logo=youtube](https://drive.google.com/file/d/1XHCtTEn5DlClL7vYxqqSQmccMBM9qYJb/view?usp=sharing))](assets/demo.mp4)
+> [![Watch Demo Video](https://drive.google.com/file/d/1XHCtTEn5DlClL7vYxqqSQmccMBM9qYJb/view?usp=sharing)
 
 ---
 
