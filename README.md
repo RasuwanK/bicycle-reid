@@ -1,7 +1,6 @@
 # Cross-Camera Motorcycle Re-Identification System
 
 ![Project Cover Image](assets/cover.jpeg)
-*(Place your project cover or architecture banner image at `assets/cover.png`)*
 
 ---
 
